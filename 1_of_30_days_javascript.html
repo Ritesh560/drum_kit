@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>key Drum</title>
+</head>
+<body>
+    <div class="keys">
+
+        <div data-key="65" class="key">
+            <kbd>A</kbd>
+            <span class="sound">clap</span>
+        </div>
+        <div data-key="83" class="key">
+            <kbd>S</kbd>
+            <span class="sound">hihat</span>
+        </div>
+        <div data-key="68" class="key">
+            <kbd>D</kbd>
+            <span class="sound">kick</span>
+        </div>
+        <div data-key="70" class="key">
+            <kbd>F</kbd>
+            <span class="sound">openchat</span>
+        </div>
+        <div data-key="71" class="key">
+            <kbd>G</kbd>
+            <span class="sound">boon</span>
+        </div>
+        <div data-key="72" class="key">
+            <kbd>H</kbd>
+            <span class="sound">ride</span>
+        </div>
+        <div data-key="74" class="key">
+            <kbd>J</kbd>
+            <span class="sound">snaze</span>
+        </div>
+        <div data-key="75" class="key">
+            <kbd>K</kbd>
+            <span class="sound">tom</span>
+        </div>
+        <div data-key="76" class="key">
+            <kbd>L</kbd>
+            <span class="sound">tink</span>
+        </div>
+
+    </div>
+
+    <!-- <audio data-key="65" src=""></audio>
+    <audio data-key="83" src=""></audio>
+    <audio data-key="68" src=""></audio>
+    <audio data-key="70" src=""></audio>
+    <audio data-key="71" src=""></audio>
+    <audio data-key="72" src=""></audio>
+    <audio data-key="74" src=""></audio>
+    <audio data-key="75" src=""></audio>
+    <audio data-key="76" src=""></audio> -->
+    <style>
+        .keys{
+            display: inline-flex;
+            height: 100vh;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            background-image: url(../../photo/img3.jpg);
+
+        }
+        .key{
+            padding: 15px;
+            border: 2px solid black;
+            margin:10px;
+            text-align: center;
+            justify-content: center;
+            background-color: rgb(24, 19, 19);
+            color: blanchedalmond;
+            width: 500px;
+            transition: all .07s;
+        }
+        
+        kbd{
+             display: block;
+             font-size: 40px;
+            
+        }
+        .play{
+            transform: scale(1.1);
+            border-color: yellow;
+            border-radius: 0 0 10px black;
+        }
+        
+
+    </style>
+
+<script>
+    function sound(key)
+    {
+        switch(key)
+        {
+            
+            case "a":
+                var A = new Audio("1.wav")
+                A.play();"a".addClass("play");
+                break;
+            case "s":
+            var S= new Audio("2.wav");
+            S.play();
+            break;
+            case "d":
+            var D= new Audio("3.wav");
+            D.play();
+            break;case "f":
+            var F= new Audio("4.wav");
+            F.play();
+            break;case "g":
+            var G= new Audio("5.wav");
+            G.play();
+            break;case "h":
+            var H= new Audio("6.wav");
+            H.play();
+            break;
+            case "j":
+            var J= new Audio("7.wav");
+            J.play();
+            break;
+            case "k":
+            var k= new Audio("8.wav");
+            k.play();
+            break;
+            case "l":
+            var L= new Audio("9.wav");
+            L.play();
+            break;
+
+
+        }
+    }
+    document.addEventListener("keypress",function(e)
+    {
+        sound(e.key);
+    })
+
+
+
+
+</script>
+
+</body>
+</html>
