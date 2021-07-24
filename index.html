@@ -94,8 +94,9 @@
     </style>
 
 <script>
-    function sound(key)
-    {
+
+function sound(key)
+    { 
         switch(key)
         {
             
@@ -136,6 +137,17 @@
 
         }
     }
+
+    noofbuttons= document.querySelectorAll(".button").length; 
+    for(var i=0; i<noofbuttons; i++)
+    {
+       document.querySelectorAll(".button")[i].addEventListener("click", function() {
+           var playonclick = this.innerHTML;
+           sound(playonclick);
+       });
+    }
+
+    
     document.addEventListener("keypress",function(e)
     {
         sound(e.key);
@@ -145,6 +157,5 @@
 
 
 </script>
-
 </body>
 </html>
