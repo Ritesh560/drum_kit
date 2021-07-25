@@ -10,39 +10,39 @@
     <div class="keys">
 
         <div data-key="65" class="key">
-            <kbd class="button">a</kbd>
+            <kbd class="a button">a</kbd>
             <span class="sound">clap</span>
         </div>
         <div data-key="83" class="key">
-            <kbd class="button">s</kbd>
+            <kbd class="s button">s</kbd>
             <span class="sound">hihat</span>
         </div>
         <div data-key="68" class="key">
-            <kbd class="button">d</kbd>
+            <kbd class="d button">d</kbd>
             <span class="sound">kick</span>
         </div>
         <div data-key="70" class="key">
-            <kbd class="button">f</kbd>
+            <kbd class="f button">f</kbd>
             <span class="sound">openchat</span>
         </div>
         <div data-key="71" class="key">
-            <kbd class="button">g</kbd>
+            <kbd class="g button">g</kbd>
             <span class="sound">boon</span>
         </div>
         <div data-key="72" class="key">
-            <kbd class="button">h</kbd>
+            <kbd class="h button">h</kbd>
             <span class="sound">ride</span>
         </div>
         <div data-key="74" class="key">
-            <kbd class="button">j</kbd>
+            <kbd class="j button">j</kbd>
             <span class="sound">snaze</span>
         </div>
         <div data-key="75" class="key">
-            <kbd class="button">k</kbd>
+            <kbd class="k button">k</kbd>
             <span class="sound">tom</span>
         </div>
         <div data-key="76" class="key">
-            <kbd class="button">l</kbd>
+            <kbd class="l button">l</kbd>
             <span class="sound">tink</span>
         </div>
 
@@ -64,18 +64,18 @@
             width: 100%;
             justify-content: center;
             align-items: center;
-            background-image: url(img3.jpg);
+            background-image: url(../../photo/img3.jpg);
 
         }
         .key{
             padding: 15px;
-            border: 2px solid black;
+            border: 2px solid white;
             margin:10px;
             text-align: center;
             justify-content: center;
             background-color: rgb(24, 19, 19);
             color: blanchedalmond;
-            width: 500px;
+            width: 100px;
             transition: all .07s;
         }
         
@@ -85,9 +85,16 @@
             
         }
         .play{
-            transform: scale(1.1);
+            
             border-color: yellow;
             border-radius: 0 0 10px black;
+        }
+
+        .pressed{
+            box-shadow: 2px 2px 2px #6b5f5f;
+            padding: 10px;
+            color: yellow;
+            
         }
         
 
@@ -133,24 +140,35 @@ function sound(key)
             var L= new Audio("9.wav");
             L.play();
             break;
-
-
         }
     }
 
+   function press(key)
+   {
+       
+      var btnpress= document.querySelector("."+key);
+      btnpress.classList.add("pressed");
+      setTimeout(function(){
+          btnpress.classList.remove("pressed");
+      },100);
+   }
+    
     noofbuttons= document.querySelectorAll(".button").length; 
     for(var i=0; i<noofbuttons; i++)
     {
        document.querySelectorAll(".button")[i].addEventListener("click", function() {
            var playonclick = this.innerHTML;
            sound(playonclick);
+           press(playonclick);
+           
        });
     }
 
     
-    document.addEventListener("keypress",function(e)
+    document.addEventListener("keypress",function(p)
     {
-        sound(e.key);
+        press(p.key); 
+        sound(p.key);
     })
 
 
