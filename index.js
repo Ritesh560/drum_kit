@@ -54,8 +54,8 @@ function sound(key)
     {
        document.querySelectorAll(".button")[i].addEventListener("click", function() {
            var playonclick = this.innerHTML;
-           sound(playonclick);
            press(playonclick);
+           sound(playonclick);
            
        });
     }
@@ -66,5 +66,4 @@ function sound(key)
         press(p.key); 
         sound(p.key);
     })
-
 
